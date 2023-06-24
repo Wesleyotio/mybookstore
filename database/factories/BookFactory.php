@@ -16,13 +16,13 @@ class BookFactory extends Factory
      */
     public function definition()
     {
-        
+
 
         return [
             'status' => 'active',
             'name' => $this->faker->sentence(5, true),
             'ISBN' => $this->faker->randomNumber(6, false),
-            'value' => $this->faker->randomFloat(4, 20, 100),
+            'value' => $this->faker->randomFloat(2, 20, 100),
 
         ];
     }

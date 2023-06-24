@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -26,7 +27,11 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/logout', [UserController::class, 'logout']);
     Route::post('/user/update', [UserController::class, 'update']);
 });
-Route::middleware('auth:sanctum')->get('/books', 'Controller@index');
-Route::middleware('auth:sanctum')->post('/books', 'BookController@create');
-Route::middleware('auth:sanctum')->put('/books/{id}', 'BookController@update');
-Route::middleware('auth:sanctum')->delete('/books/{id}', 'BookController@delete');
+Route::middleware('auth:sanctum')->prefix('books')->group(function () {
+    Route::get('all', [BookController::class, 'index']);
+    Route::post('create', [BookController::class,'create']);
+    Route::post('update/{id}', [BookController::class,'update']);
+    Route::delete('destroy/{id}', [BookController::class,'delete']);
+
+});
+
