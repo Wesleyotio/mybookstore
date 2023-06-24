@@ -1,5 +1,5 @@
 
-# Instruções para uso da aplicação apos fazer `git clone`
+# Instruções para uso da aplicação após fazer `git clone`
 
 1. Copie o arquivo .env.example para .env usando o comando
    
